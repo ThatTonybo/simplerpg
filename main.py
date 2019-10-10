@@ -73,6 +73,11 @@ class main(pyglet.window.Window):
 			6 : 315,
 			4 : 360,
 		}
+
+		self.fps_text = '- fps'
+		self.fps = 0
+		self.last_udpate = time.time()
+		self.fps_label = pyglet.text.Label(self.fps_text, x=10, y=self.height - 20)
 		
 		self.mouse_x = 0
 		self.mouse_y = 0
@@ -145,13 +150,19 @@ class main(pyglet.window.Window):
 			#self.sprites['player'].speed += 1
 			self.sprites['player'].speed = 160
 		self.sprites['player'].update(self)
+		self.fps += 1
+
+		if time.time()-self.last_udpate>1:
+			self.fps_label.text = str(self.fps) + 'fps'
+			self.fps = 0
+			self.last_udpate = time.time()
 
 	def render(self):
 		self.clear()
 
 		self.world_batch.draw()
-
 		self.sprites['player'].draw()
+		self.fps_label.draw()
 
 		self.flip()
 
