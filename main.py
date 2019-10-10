@@ -79,6 +79,7 @@ class main(pyglet.window.Window):
 
 		self.sprites = {}
 		self.sprites['player'] = Player(pyglet.resource.image('player.png'), x=16, y=16)
+		self.world_batch = world.draw(self, self.sprites)
 
 		self.alive = 1
 
@@ -148,8 +149,7 @@ class main(pyglet.window.Window):
 	def render(self):
 		self.clear()
 
-		world_batch = world.draw(self, self.sprites)
-		world_batch.draw()
+		self.world_batch.draw()
 
 		self.sprites['player'].draw()
 
