@@ -7,13 +7,10 @@ def draw(window, sprites):
     x = 0
     y = 0
 
-    tiles = []
-
     while True:
         sprite = pyglet.sprite.Sprite(grass, x=x, y=y, batch=batch)
 
-        sprites.append(sprite)
-        tiles.append(sprite)
+        sprites[len(sprites)] = sprite
 
         x += grass.width
 
