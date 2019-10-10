@@ -1,7 +1,7 @@
 import pyglet
 from pyglet.window import key
 
-from functions import world, player, update
+from functions import world, player, movement
 
 window = pyglet.window.Window()
 
@@ -51,6 +51,6 @@ def on_draw():
 
 print(type(Player))
 
-pyglet.clock.schedule(update.keys(pressed=pressed, player=Player), 1/60)
+pyglet.clock.schedule(movement.track(pressed=pressed, player=Player), 1/60)
 
 pyglet.app.run()

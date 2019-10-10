@@ -1,6 +1,6 @@
 import pyglet
 
-def keys(pressed, player):
+def track(pressed, player):
     if pressed['W'] == True:
         player.up(by=0.5)
 
