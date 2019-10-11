@@ -1,19 +1,21 @@
 import time
+
 from pyglet import *
 from pyglet.gl import *
+
 from functions import world, player
 
-key = pyglet.window.key
 pyglet.resource.path = ['resources']
 pyglet.resource.reindex()
+
+key = pyglet.window.key
 
 class main(pyglet.window.Window):
 	def __init__ (self, width=800, height=600, fps=False, *args, **kwargs):
 		super(main, self).__init__(width, height, *args, **kwargs)
 		self.x, self.y = 0, 0
 
-		self.keys = {
-		}
+		self.keys = {}
 
 		self.keymap = 0
 		self.keymapTranslation = {
@@ -52,15 +54,6 @@ class main(pyglet.window.Window):
 		self.mouse_x = x
 
 	def on_key_release(self, symbol, modifiers):
-#		if symbol == key.W:
-#			pressed['W'] = False
-#		if symbol == key.A:
-#			pressed['A'] = False
-#		if symbol == key.S:
-#			pressed['S'] = False
-#		if symbol == key.D:
-#			pressed['D'] = False
-
 		del self.keys[symbol]
 
 		if key.W == symbol:
@@ -78,7 +71,7 @@ class main(pyglet.window.Window):
 			self.sprites['player'].speed = 0
 
 	def on_key_press(self, symbol, modifiers):
-		if symbol == key.ESCAPE: # [ESC]
+		if symbol == key.ESCAPE:
 			self.alive = 0
 
 		self.keys[symbol] = time.time()
@@ -101,7 +94,6 @@ class main(pyglet.window.Window):
 
 	def update(self):
 		if self.keymap in self.keymapTranslation:
-			#self.sprites['player'].speed += 1
 			self.sprites['player'].speed = 160
 		self.sprites['player'].update(self)
 		self.fps += 1
@@ -125,10 +117,6 @@ class main(pyglet.window.Window):
 			self.update()
 			self.render()
 
-			# -----------> This is key <----------
-			# This is what replaces pyglet.app.run()
-			# but is required for the GUI to not freeze
-			#
 			event = self.dispatch_events()
 
 if __name__ == '__main__':
