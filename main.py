@@ -18,7 +18,6 @@ class main(pyglet.window.Window):
 		self.keymap = 0
 		self.keymapTranslation = {
 			# bitVal : angle.degrees
-			#0 : 0, # <- Turns turning off
 			5 : 45,
 			1 : 90,
 			9 : 135,

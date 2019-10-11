@@ -11,6 +11,7 @@ class Player(pyglet.sprite.Sprite):
 		self.max_speed = 160
 		self.multiplier = 1
 		self.turn_speed = 360 # deg/sec
+		self.instant_turning = True
 		self.x = x
 		self.y = y
 
@@ -28,10 +29,13 @@ class Player(pyglet.sprite.Sprite):
 		## Calculate the speed based of speed over time
 		## Same for turning.
 		speed_factor = time_last_render * (min(self.speed, self.max_speed)*self.multiplier)
-		turn_factor = time_last_render * self.turn_speed
+		if self.instant_turning:
+			turn_factor = self.turn_speed
+		else:
+			turn_factor = time_last_render * self.turn_speed
 
-		## 
-		#wself.target_angle = ((atan2(mouse_y-self.y, mouse_x-self.x)/pi*180)+360)%360
+		## Follow the mouse, use this code:
+		# wself.target_angle = ((atan2(mouse_y-self.y, mouse_x-self.x)/pi*180)+360)%360
 		a = self.target_angle - self.angle
 		a = (a + 180) % 360 - 180
 
