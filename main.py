@@ -39,7 +39,7 @@ class main(pyglet.window.Window):
 		self.mouse_y = 0
 
 		self.sprites = {}
-		self.sprites['player'] = player.Player(pyglet.resource.image('player.png'), x=16, y=16)
+		self.sprites['player'] = player.Player(pyglet.resource.image('player.png'), x=self.width / 2, y=self.height / 2)
 		self.world_batch = world.draw(self, self.sprites)
 
 		self.alive = 1
