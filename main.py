@@ -77,16 +77,16 @@ class main(pyglet.window.Window):
 		self.keys[symbol] = time.time()
 
 		if key.W in self.keys:
-			print('Up')
+			# up
 			self.keymap |= 1
 		if key.S in self.keys:
-			print('Down')
+			# down
 			self.keymap |= 2
 		if key.D in self.keys:
-			print('Right')
+			# right
 			self.keymap |= 4
 		if key.A in self.keys:
-			print('Left')
+			# left
 			self.keymap |= 8
 
 		if self.keymap in self.keymapTranslation:
@@ -98,7 +98,7 @@ class main(pyglet.window.Window):
 		self.sprites['player'].update(self)
 		self.fps += 1
 
-		if time.time()-self.last_udpate>1:
+		if time.time() - self.last_udpate > 1:
 			self.fps_label.text = str(self.fps) + ' fps'
 			self.fps = 0
 			self.last_udpate = time.time()
