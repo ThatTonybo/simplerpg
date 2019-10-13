@@ -10,7 +10,10 @@ pyglet.resource.reindex()
 
 key = pyglet.window.key
 
-config = pyglet.gl.Config(sample_buffers=1, samples=4)
+config = Config(sample_buffers=1, samples=4)
+
+glEnable(GL_LINE_SMOOTH);
+glHint(GL_LINE_SMOOTH_HINT, GL_DONT_CARE);
 
 class main(pyglet.window.Window):
 	def __init__ (self, width=800, height=600, fps=False, config=config, *args, **kwargs):
