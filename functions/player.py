@@ -45,4 +45,7 @@ class Player(pyglet.sprite.Sprite):
 		self.x += x * speed_factor
 		self.y += y * speed_factor
 
+		glEnable(GL_LINE_SMOOTH);
+		glHint(GL_LINE_SMOOTH_HINT, GL_DONT_CARE);
+		
 		glTranslatef(-(x * speed_factor), -(y * speed_factor), 0)

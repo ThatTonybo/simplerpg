@@ -10,8 +10,10 @@ pyglet.resource.reindex()
 
 key = pyglet.window.key
 
+config = pyglet.gl.Config(sample_buffers=1, samples=4)
+
 class main(pyglet.window.Window):
-	def __init__ (self, width=800, height=600, fps=False, *args, **kwargs):
+	def __init__ (self, width=800, height=600, fps=False, config=config, *args, **kwargs):
 		super(main, self).__init__(width, height, *args, **kwargs)
 		self.x, self.y = 0, 0
 
