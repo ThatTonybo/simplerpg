@@ -9,9 +9,10 @@ While I appreciate and greatly encourage PRs and improvements, please don't send
 ## Install
 Installing and running simplerpg is real easy. Clone (or download) the source code and extract it to a suitable location.
 
-You'll need to install pyglet to get simplerpg to load.
+simplerpg depends on pyglet and opensimplex to run. Install them both within the location you extracted.
 ```
 pip install pyglet
+pip install opensimplex
 ```
 
 Finally, run main.py to start the game.
