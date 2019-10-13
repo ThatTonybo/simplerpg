@@ -3,7 +3,9 @@ import pyglet
 from opensimplex import OpenSimplex
 
 def draw(window, sprites):
-    generator = OpenSimplex(seed=0)
+    batch = pyglet.graphics.Batch()
+    
+    terrain = OpenSimplex(seed=0)
 
     tilemap = {
         'grass': 'grass.png',
@@ -11,12 +13,11 @@ def draw(window, sprites):
         'water': 'water.png',
     }
     
-    batch = pyglet.graphics.Batch()
     x = 0
     y = 0
 
     while True:
-        n = noise(generator=generator, x=x, y=y)
+        n = noise(generator=terrain y=y)
         t = tile(noise=n)
 
         img = pyglet.resource.image(tilemap[t])
