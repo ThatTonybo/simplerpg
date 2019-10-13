@@ -1,4 +1,6 @@
 import pyglet
+from pyglet.gl import *
+
 import time
 
 from math import *
@@ -42,3 +44,5 @@ class Player(pyglet.sprite.Sprite):
 
 		self.x += x * speed_factor
 		self.y += y * speed_factor
+
+		glTranslatef(-(x * speed_factor), -(y * speed_factor), 0)
