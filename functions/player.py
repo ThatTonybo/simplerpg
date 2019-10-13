@@ -30,8 +30,6 @@ class Player(pyglet.sprite.Sprite):
 		else:
 			turn_factor = time_last_render * self.turn_speed
 
-		# follow mouse:
-		# self.target_angle = ((atan2(mouse_y-self.y, mouse_x-self.x)/pi*180)+360)%360
 		a = self.target_angle - self.angle
 		a = (a + 180) % 360 - 180
 
