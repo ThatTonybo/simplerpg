@@ -17,7 +17,7 @@ def draw(window, sprites):
     y = 0
 
     while True:
-        n = noise(generator=terrain y=y)
+        n = noise(generator=terrain, x=x, y=y)
         t = tile(noise=n)
 
         img = pyglet.resource.image(tilemap[t])
